@@ -66,11 +66,31 @@ const loginController = async (req, res) => {
     if (password != user.password) {
       res.status(500).send({ success: false, message: "wrong psk" });
     }
-    res.status(201).json({ message: "Login successful", user });
+    // res.status(201).json({ message: "Login successful", user });
+    const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+    res.status(201).send({
+      success: true,
+      message: "Login successful",
+      user: {
+        name: user.name,
+        mno: user.phone,
+        address: user.address,
+        user: user.email,
+        // id: user.id,
+        token,
+      },
+    });
   } catch (err) {
     console.log("error in login controller", err);
     res.status(500).send({ success: false, message: "error in login", err });
   }
+};
+
+//TEST
+export const testController = (req, res) => {
+  res.send("Protected");
 };
 
 export default loginController;
