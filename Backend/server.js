@@ -4,9 +4,11 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoute from "./routes/authRoute.js";
 import registerController from "./controllers/authController.js";
-
+import cors from "cors";
 dotenv.config();
+
 const app = express();
+app.use(cors());
 
 //db connect
 connectDB();

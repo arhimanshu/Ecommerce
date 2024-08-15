@@ -16,12 +16,18 @@
   margin-top: auto;
   padding-bottom: 0;
   margin-bottom: 0;
-  position: absolute;
+  position: sticky;
   padding-top: 12px;
-  bottom: 0%;
+  bottom: -10px;
   left: 0;
   right:0
-  /* margin-top:auto; */
+
+
+    /* position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;      */
+    /* calc height when limited content */
 }
 .footer a:hover{
   color: rgb(223, 203, 203);
@@ -29,4 +35,20 @@
 .header{
   color:white;
   background:linear-gradient(to right,rgb(110, 98, 98),black)
+}
+.errorInYupp{
+  color:red;
+  background-color: aquamarine;
+}
+
+/* index.css */
+.registerSize {
+  width: 30%;
+  height: 50%;
+  background-color: brown;
+  margin: 0 auto; /* Center the div horizontally */
+  padding: 10px; /* Add some padding */
+  color: white; /* Ensure text color is visible against the background */
+  border-radius: 8px; /* Optional: add rounded corners */
+  max-height: 90vh;
 }

@@ -5,6 +5,7 @@ import About from '../pages/About'
 import Contact from '../pages/Contact'
 import Policy from '../pages/Policy'
 import Pagenotfound from '../pages/Pagenotfound'
+import Register from '../pages/Register'
 function App() {
   return (
     <>
@@ -13,6 +14,8 @@ function App() {
       <Route path="/About" element={<About/>}></Route>
       <Route path="/Contact" element={<Contact/>}></Route>
       <Route path="/policy" element={<Policy/>}></Route>
+      <Route path="/Register" element={<Register/>}></Route>
+
       <Route path="*" element={<Pagenotfound/>}></Route>
 
 

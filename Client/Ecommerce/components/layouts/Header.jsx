@@ -45,7 +45,7 @@ function Header() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/Signup" className="nav-link text-white" aria-current="page">
+                <NavLink to="/Register" className="nav-link text-white" aria-current="page">
                   Signup
                 </NavLink>
               </li>
