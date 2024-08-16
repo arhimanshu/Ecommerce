@@ -8,8 +8,13 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-app.use(cors());
-
+app.use(
+  cors({
+    origin: "http://localhost:5174", // Replace with your client URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 //db connect
 connectDB();
 

@@ -24,10 +24,10 @@ export const registerController = async (req, res) => {
       return res.send({ error: "address is req" });
     }
 
-    const existingUser = await userModel.findOne({ name });
+    const existingUser = await userModel.findOne({ email });
     if (existingUser) {
       return res
-        .status(200)
+        .status(409)
         .send({ success: true, message: "Already Registered" });
     }
 
@@ -37,7 +37,7 @@ export const registerController = async (req, res) => {
     //
     console.log("suerrrrrrrrrrrrrrissssssssssssssssssss", user);
     await user.save();
-    res.status(201).json({ message: "Registration successful", user });
+    res.status(201).send({ message: "Registration successful", user });
   } catch (err) {
     console.log(err);
     res.status(500).send({
@@ -70,7 +70,7 @@ const loginController = async (req, res) => {
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
-    res.status(201).send({
+    res.status(200).send({
       success: true,
       message: "Login successful",
       user: {

@@ -32,7 +32,11 @@ const Register = () => {
   const onSubmit = async (datas) => {
     try{
     console.log('Form submitted', datas); // Check if this is logged
-    axios.post('http://localhost:8081/api/register',datas)
+    const res =await axios.post('http://localhost:8081/api/register',datas)
+    console.log(res)
+    if(res && res.status==201){
+ console.log(res.data.message)}
+ toast.success(res.data.message)
   }catch(error){
     console.log(error)
   }
